@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Comentarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+
+        #counter {
+            font-size: 0.9em;
+            color: gray;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .info {
+            font-size: 0.85em;
+            color: darkgray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejercicio 1</h1>
+    <h2 href="../index.html" >regresar</h2>
+<div id="textcontainer">
+    <label for="comentarios">Comentarios Adicionales:
+    <textarea id="comentarios" oninput="verificar(this, 230, 'counter')"></textarea><br>
+   </label>
+    <p id="counter">(Caracteres máximos: 230)<br>
+       Usted tiene un espacio de 230 caracteres restantes.</p>
+   
+</div>
+
+<script>
+    function verificar(control, max, progressTextId) {
+       const currentLength = control.value.length;
+        
+        if(currentLength > max){
+        control.value = control.value.substring(0, max);
+        }
+        const remaining = max - control.value.length;
+        document.getElementById(progressTextId).innerHTML = `(Caracteres máximos: ${max})<br>Usted tiene un espacio de ${remaining} caracteres restantes.`;
+    }
+</script>
+
+</body>
+</html>
